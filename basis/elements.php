@@ -360,10 +360,18 @@ trait Elements
         {
             $APPLICATION->SetPageProperty('description', $this->arResult['SEO_TAGS']['DESCRIPTION']);
         }
+        elseif ($this->arResult['ID'] > 0 || $this->arResult['SECTION'])
+        {
+            $APPLICATION->SetPageProperty('description', '');
+        }
 
         if ($this->arResult['SEO_TAGS']['KEYWORDS'])
         {
             $APPLICATION->SetPageProperty('keywords', $this->arResult['SEO_TAGS']['KEYWORDS']);
+        }
+        elseif ($this->arResult['ID'] > 0 || $this->arResult['SECTION'])
+        {
+            $APPLICATION->SetPageProperty('keywords', '');
         }
     }
 
